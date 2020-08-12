@@ -1,0 +1,31 @@
+<% if(typeof errors != 'undefined') { %>
+    <div class = "pp">
+    <% errors.forEach( function(err,index) { %>
+            <p ><%= err.msg %></p>
+    <% }); %> 
+    </div>
+<% } %>
+
+<% if(success_msg != ''){ %>
+    <div class = "pp">
+   <%= success_msg %>
+</div>
+<% } %>
+<% if(error_msg != ''){ %>
+    <div class = "pp">
+        <%= error_msg %>
+     </div>
+<% } %> 
+<% if(error != ''){ %>
+    <div class = "pp">
+        <%= error %>
+     </div>
+<% } %>
+
+
+<script>
+    var p = document.querySelector('.pp');
+    setTimeout(() => {
+        p.remove();
+    },3000);
+</script>

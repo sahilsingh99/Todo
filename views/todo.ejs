@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="todo.css">
+    <title>Simple todo application</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <%- include("./partials/messages") %>
+    </div>
+    <div id="container">
+        <div class="controls">
+            <h1>My Awsome TODO Welcome <%= name %> <a href="/logout">Logout</a></h1>
+            <input type="text" name="" id="input" placeholder="Add Something">
+            <button type="button" id="add">Add TODO</button>
+            <button type="button" id="remove">Remove done TODO</button>
+            <button type="button" id="removeAll">Remove All TODO</button>
+        </div>
+        <ul id="list">
+            <li class="mycheck">
+                <input type="checkbox" id="check"></input>
+                <label>Go to Gym</label>
+            </li>
+            <li class="mycheck">
+                <input type="checkbox" id="check" checked></input>
+                <label>Record videos</label>
+            </li>
+            <li class="mycheck">
+                <input type="checkbox" id="check" checked></input>
+                <label>Record videos2</label>
+            </li>
+            <li class="mycheck">
+                <input type="checkbox" id="check" checked></input>
+                <label>Record videos3</label>
+            </li>
+        </ul>
+    </div>
+    <script src="todo.js"></script>
+</body>
+</html>
