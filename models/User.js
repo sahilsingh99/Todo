@@ -22,6 +22,7 @@ const userSchema = new Schema({
         required: true,
         minlength:8
     },
+    tasks:[{ data: String , check: Boolean}],
     token:{
         type: String
     }

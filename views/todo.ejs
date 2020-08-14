@@ -13,8 +13,10 @@
     <div id="container">
         <div class="controls">
             <h1>My Awsome TODO Welcome <%= name %> <a href="/logout">Logout</a></h1>
-            <input type="text" name="" id="input" placeholder="Add Something">
-            <button type="button" id="add">Add TODO</button>
+        <form action="/add" method="POST">
+            <input type="text" name="input1" id="input" placeholder="Add Something">
+            <button type="submit" id = "add">Add TODO</button>
+        </form>
             <button type="button" id="remove">Remove done TODO</button>
             <button type="button" id="removeAll">Remove All TODO</button>
         </div>
@@ -23,18 +25,13 @@
                 <input type="checkbox" id="check"></input>
                 <label>Go to Gym</label>
             </li>
-            <li class="mycheck">
-                <input type="checkbox" id="check" checked></input>
-                <label>Record videos</label>
-            </li>
-            <li class="mycheck">
-                <input type="checkbox" id="check" checked></input>
-                <label>Record videos2</label>
-            </li>
-            <li class="mycheck">
-                <input type="checkbox" id="check" checked></input>
-                <label>Record videos3</label>
-            </li>
+            <% for(var i = 0 ;i < list.length;i++){ %>
+                <li class="mycheck">
+                    <input type="checkbox" id="check"></input>
+                    <label><%= list[i].data %></label>
+                </li>
+            <% } %>
+
         </ul>
     </div>
     <script src="todo.js"></script>

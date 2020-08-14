@@ -32,8 +32,8 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Body-parser middleware 
-app.use(bodyParser.urlencoded({extended:false})) 
 app.use(bodyParser.json()) 
+app.use(bodyParser.urlencoded({extended:false})) 
 
 // Express session
 app.use(
@@ -69,6 +69,7 @@ app.get('/register',forwardAuthenticated, (req,res) => {
 
 app.post('/register',(req,res) => {
     const { name, email, password, password2 } = req.body;
+    console.log(req.body);
     // if taking data directly from req.body then use name as defined in forms.
     // if taking data indivisually like var x = req.body.name, then no need for same name
     //console.log(req.body);
@@ -158,9 +159,22 @@ app.get('/logout', (req, res) => {
 
 app.get('/', ensureAuthenticated ,(req,res) => {
     res.render('todo',{
-      name: req.user.name
+      name: req.user.name,
+      list: req.user.tasks
     });
 });
+
+app.post('/add', ensureAuthenticated ,(req, res) => {
+    let t1 = req.body.input1;
+    let t2 = false;
+    req.user.tasks.push({t1,t2});
+    console.log(req.body);
+    req.user.update( { $push : { tasks:{ data:t1,check:t2}}})
+      .then(user =>{
+        res.redirect('/');
+      })
+      .catch(err => console.log(err));
+})
 
 //app.listen(3000,() => console.log('server is started!'));
 

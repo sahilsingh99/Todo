@@ -9,8 +9,8 @@
 var ul = document.getElementById('list');
 var li;
 
-var addButton = document.getElementById('add');
-addButton.addEventListener('click',addItem);
+/*var addButton = document.getElementById('add1');
+addButton.addEventListener('click',addItem);*/
 
 var removeButton = document.getElementById('remove');
 removeButton.addEventListener('click',removeItem);
@@ -18,10 +18,11 @@ removeButton.addEventListener('click',removeItem);
 var removeAll = document.getElementById('removeAll');
 removeAll.addEventListener('click',removeAllItem);
 
-function addItem(){
+/*function addItem(){
 
     //console.log('Add Button is clicked!');
-    var input = document.getElementById('input');
+    var input = document.getElementById('input1');
+    console.log("not backend")
     var item = input.value;
     ul = document.getElementById('list');
     var textnode = document.createTextNode(item);
@@ -71,7 +72,7 @@ function addItem(){
 
      input.value = ''
 
-}
+}*/
 
 function removeItem(){
 // console.log('Remove Button is clicked!');
