@@ -15,7 +15,7 @@ const {forwardAuthenticated , ensureAuthenticated} = require('./config/auth');
 require('./config/passport')(passport);
 
 //connect to mongoDB
-const DBURI = "mongodb+srv://Sahil:database1234@cluster0.3zl0l.mongodb.net/Todo";
+const DBURI = "mongodb+srv://Sahil:XXXXXXXXXX@cluster0.3zl0l.mongodb.net/Todo";
 mongoose.connect(DBURI, { useNewUrlParser: true , useUnifiedTopology: true })
 .then( (res) =>{ 
         console.log('connected to db'),
